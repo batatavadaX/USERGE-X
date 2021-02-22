@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usergex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usergex
+  template:
+    metadata:
+      labels:
+        app: usergex
+    spec:
+      containers:
+      - image: varietyjames1/userge_x:latest
+        name: hello-world
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: usergex
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: LoadBalancer  
+  ports:
+  - name: "x"
+    port: 8080
+  selector:
+    app: x
