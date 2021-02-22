@@ -1,0 +1,9 @@
+name: usergex
+labels:
+  app.kubernetes.io/part-of: vote
+  app.kubernetes.io/component: api
+image: python:3
+command: ["bash", "run"]
+workdir: /usr/src/app
+sync:
+ - .:/usr/src/app
