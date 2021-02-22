@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userge-x
+spec:
+  selector:
+    matchLabels:
+      app: userge-x
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: userge-x
+    spec:
+      containers:
+        - name: userge_x
+          image: varietyjames1/userge_x:latest
+      # ports:
+      # - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: userge-x
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - name: "userge-x"
+      port: 8080
+  selector:
+    app: userge-x
