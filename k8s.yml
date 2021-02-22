@@ -57,11 +57,12 @@ spec:
               "cat /etc/config/config.yaml && echo && tail -f /dev/null",
             ]
           volumeMounts:
-            - name: usergex
+            - name: config-volume
               mountPath: /etc/config
-        - name: usergex
+      volumes:
+        - name: config-volume
           configMap:
-            name: usergex
+            name: config-app
       # ports:
       # - containerPort: 80
 ---
