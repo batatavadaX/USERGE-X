@@ -4,3 +4,9 @@ branch: $OKTETO_GIT_BRANCH
 
 # this comes from an okteto secret
 name: $MY_NAME
+api_id: $API_ID
+api_hash: $API_HASH
+db: $DATABASE_URL
+log_channel: $LOG_CHANNEL_ID
+bot_token: $BOT_TOKEN
+owner: $OWNER_ID
