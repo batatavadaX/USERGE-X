@@ -5,4 +5,4 @@ configMapGenerator:
     files:
       - config.yaml
 resources:
-  - deployment.yaml
+  - k8s.yml
