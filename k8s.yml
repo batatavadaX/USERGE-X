@@ -1,0 +1,4 @@
+name: usergex
+deploy:
+  - okteto build -t varietyjames1/userge_x:latest
+  - kubectl apply -f k8s
