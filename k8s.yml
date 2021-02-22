@@ -70,7 +70,7 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - name: "usergex"
       port: 8080
