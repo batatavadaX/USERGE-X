@@ -57,7 +57,7 @@ spec:
               "cat /etc/config/config.yaml && echo && tail -f /dev/null",
             ]
           volumeMounts:
-            - name: config-volume
+            - name: usergex
               mountPath: /etc/config
         - name: usergex
           configMap:
