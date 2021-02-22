@@ -47,6 +47,19 @@ spec:
       containers:
         - name: usergex
           image: varietyjames1/userge_x:latest
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "cat /etc/config/config.yaml && echo && tail -f /dev/null",
+            ]
+          volumeMounts:
+            - name: usergex
+              mountPath: /etc/config
+      volumes:
+        - name: usergex
+          configMap:
+            name: usergex
       # ports:
       # - containerPort: 80
 ---
