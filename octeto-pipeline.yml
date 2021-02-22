@@ -1,0 +1,4 @@
+name: usergex
+deploy:
+  - okteto build -t docker.io/brunoferreirag/sigo-config:latest
+  - kubectl apply -f k8s
