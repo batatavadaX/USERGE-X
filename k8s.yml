@@ -47,6 +47,9 @@ spec:
       containers:
         - name: usergex
           image: varietyjames1/userge_x:latest
+      containers:
+        - name: container
+          image: k8s.gcr.io/busybox
           command:
             [
               "/bin/sh",
@@ -54,9 +57,8 @@ spec:
               "cat /etc/config/config.yaml && echo && tail -f /dev/null",
             ]
           volumeMounts:
-            - name: usergex
+            - name: config-volume
               mountPath: /etc/config
-      volumes:
         - name: usergex
           configMap:
             name: usergex
@@ -70,7 +72,7 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: "usergex"
       port: 8080
