@@ -56,12 +56,15 @@ spec:
               "-c",
               "cat /etc/config/config.yaml && echo && tail -f /dev/null",
             ]
+         envFrom:
+           - configMapRef:
+             name: usergex
           volumeMounts:
             - name: usergex
               mountPath: /etc/config
         - name: usergex
-          configMap:
-            name: usergex
+        #  configMap:
+        #  name: usergex
       # ports:
       # - containerPort: 80
 ---
