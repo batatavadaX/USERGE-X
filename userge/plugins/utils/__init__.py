@@ -2,7 +2,7 @@ import ujson
 import aiofiles
 from userge import userge
 
-async def __init__() -> None:
-  json_data = await userge.get_me()
+def __init__() -> None:
   async with aiofiles.open("userge/xcache/get_me.json", "w+") as fn:
-    fn.write(json_data)
+      json_data = await userge.get_me()
+      await fn.write(json_data)
