@@ -10,11 +10,5 @@
 
 from userge import userge
 
-import ujson
-import aiofiles
-async with aiofiles.open("userge/xcache/get_me.json", "w+") as fn:
-   json_data = await userge.get_me()
-   await fn.write(json_data)
-
 if __name__ == "__main__":
     userge.begin()
